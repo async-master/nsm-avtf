@@ -2,7 +2,7 @@
 #include <cstdlib>
 
 void insertion_sort(float *arr, int size){
-	for(int i=0;i<=size;i++){
+	for(int i=0;i<size;i++){
 		float x=arr[i];
 		int j=i-1;
 		while(j>=0 && arr[j]>x){
@@ -18,10 +18,10 @@ int main(){
 	float randomDigits[size] {};
 	for(int i = 0; i < size; i++){
 	    if(i%2 == 1){
-	        randomDigits[i] = -0.01 * (rand() % 101);
+	        randomDigits[i] = -0.01 * (rand() % 1001);
 	        continue;
 	    }
-	    randomDigits[i] = 0.01 * (rand() % 101);
+	    randomDigits[i] = 0.01 * (rand() % 1001);
 	}
 	std::cout <<"Не отсортированный массив: " << std::endl;
 	for(int i = 0; i < size; i++) std::cout << randomDigits[i] << " ";
