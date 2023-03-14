@@ -1,37 +1,42 @@
-#include <bits/stdc++.h>
+#include <iostream>
 #include <cstdlib>
-using namespace std;
 
-void swap(float *xp, float *yp) {
-    float temp = *xp;
-    *xp = *yp;
-    *yp = temp;
-}
 
-void selectionSort(float arr[], int n) {
-    int i, j, min_idx;
-    for (i = 0; i < n - 1; i++) {
-        min_idx = i;
-        for (j = i + 1; j < n; j++) {
-            if (arr[j] < arr[min_idx]) min_idx = j;
+void selection_sort(float *arr, int size)
+{
+    for (int i = 0; i < size - 1; i++)
+    {
+        int min_index = i;
+        for (int j = i + 1; j < size; j++)
+        {
+            if (arr[j] < arr[min_index])
+            {
+                min_index = j;
+            }
         }
-        if (min_idx != i) swap(arr[min_idx], arr[i]);
+        if (min_index != i)
+        {
+			float temp = arr[i];
+            arr[i] = arr[min_index];	
+			arr[min_index] = temp;
+        }
     }
 }
-void printArray(float arr[], int size) {
-    int i;
-    for (i = 0; i < size; i++) {
-        cout << arr[i] << " ";
-    }
-    cout << endl;
-}
-int main() {
-    int size; std::cout << "Введите размер массива: "; std::cin >> size;
-    float randomDigits[size] {};
-	for(int i = 0; i < size; i++) randomDigits[i] = 0.01 * (rand() % 1001);
+
+int main(){
+	int size; std::cout << "Введите размер массива: "; std::cin >> size;
+	float randomDigits[size] {};
+	for(int i = 0; i < size; i++){
+	    if(i%2 == 1){
+	        randomDigits[i] = -0.01 * (rand() % 101);
+	        continue;
+	    }
+	    randomDigits[i] = 0.01 * (rand() % 101);
+	}
 	for(int i = 0; i < size; i++) std::cout << randomDigits[i] << " ";
-    selectionSort(randomDigits, size);
-    cout << "Sorted array: \n";
-    printArray(randomDigits,size);
-    return 0;
+	std::cout << std::endl;
+	selection_sort(randomDigits,size);
+	for(int i = 0; i < size; i++) std::cout << randomDigits[i] << " ";
+	std::cout << std::endl;
+	
 }
