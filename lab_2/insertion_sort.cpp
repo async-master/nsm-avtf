@@ -16,11 +16,18 @@ void insertion_sort(float *arr, int size){
 int main(){
 	int size; std::cout << "Введите размер массива: "; std::cin >> size;
 	float randomDigits[size] {};
-	for(int i = 0; i < size; i++) randomDigits[i] = 0.01 * (rand() % 101);
+	for(int i = 0; i < size; i++){
+	    if(i%2 == 1){
+	        randomDigits[i] = -0.01 * (rand() % 101);
+	        continue;
+	    }
+	    randomDigits[i] = 0.01 * (rand() % 101);
+	}
+	std::cout <<"Не отсортированный массив: " << std::endl;
 	for(int i = 0; i < size; i++) std::cout << randomDigits[i] << " ";
 	std::cout << std::endl;
 	insertion_sort(randomDigits,size);
+	std::cout <<"Отсортированный массив: " << std::endl;
 	for(int i = 0; i < size; i++) std::cout << randomDigits[i] << " ";
 	std::cout << std::endl;
-	
 }
