@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-03-17T12:59:58.179Z" agent="5.0 (X11)" etag="xnyH_e5nopI1MbMo1utp" version="21.0.2" type="github">
+<mxfile host="app.diagrams.net" modified="2023-03-17T13:04:42.211Z" agent="5.0 (X11)" etag="3Kp539_DVeUIk0q3U9XU" version="21.0.2" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="1434" dy="795" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -13,13 +13,13 @@
         <mxCell id="S3-cY5jVqJooBW_uOUNI-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="S3-cY5jVqJooBW_uOUNI-0" target="S3-cY5jVqJooBW_uOUNI-2" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="S3-cY5jVqJooBW_uOUNI-0" value="Инициализируем&amp;nbsp; массив &lt;br&gt;случайными элементами" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="S3-cY5jVqJooBW_uOUNI-0" value="Генерируем&amp;nbsp; массив &lt;br&gt;случайных чисел" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="120" y="140" width="200" height="70" as="geometry" />
         </mxCell>
         <mxCell id="S3-cY5jVqJooBW_uOUNI-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="S3-cY5jVqJooBW_uOUNI-2" target="S3-cY5jVqJooBW_uOUNI-6" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="S3-cY5jVqJooBW_uOUNI-2" value="Выводим неотсортированный массив&amp;nbsp;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="S3-cY5jVqJooBW_uOUNI-2" value="Выводим массив " style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="115" y="230" width="210" height="60" as="geometry" />
         </mxCell>
         <mxCell id="S3-cY5jVqJooBW_uOUNI-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="S3-cY5jVqJooBW_uOUNI-6" target="S3-cY5jVqJooBW_uOUNI-8" edge="1">
