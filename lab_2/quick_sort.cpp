@@ -1,5 +1,4 @@
 #include <iostream>
-using namespace std;
   
 int partition(float *arr, int low, int high){
     float pivot = arr[high]; 
