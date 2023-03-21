@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cstdlib>
 
 void selection_sort(float *arr, int size)
 {
