@@ -14,7 +14,7 @@ void insertion_sort(float *arr, int size){
 
 int main(){
 	int size; std::cout << "Введите размер массива: "; std::cin >> size;
-	float randomDigits[size] {};
+	float *randomDigits = new float[size];
 	for(int i = 0; i < size; i++){
 	    if(i%2 == 1){
 	        randomDigits[i] = -0.01 * (rand() % 1001);
