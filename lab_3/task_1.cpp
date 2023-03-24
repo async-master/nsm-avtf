@@ -2,8 +2,8 @@
 
 int main()
 {
-	std::cout<<"Введите кол-во столбцов матрицы: "; int n; std::cin>>m;
-	std::cout<<"Введите кол-во строк матрицы:    "; int m; std::cin>>n;
+	std::cout<<"Введите кол-во столбцов матрицы: "; int n; std::cin>>n;
+	std::cout<<"Введите кол-во строк матрицы:    "; int m; std::cin>>m;
 	int** matrix = new int*[m];
 	for (int i = 0; i < m; i++) {
         matrix[i] = new int[n];
@@ -13,6 +13,7 @@ int main()
 			matrix[i][j] = rand()%100;
 		}
 	}
+	std::cout << std::endl;
 	
 	
 	std::cout<<"Исходная матрица: " << std::endl;
