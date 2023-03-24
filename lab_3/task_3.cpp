@@ -2,12 +2,12 @@
 
 int main()
 {
-	std::cout<<"Введите кол-во столбцов матрицы: "; int m; std::cin>>m;
-	std::cout<<"Введите кол-во строк матрицы:    "; int n; std::cin>>n;
+	std::cout<<"Введите кол-во столбцов матрицы: "; int n; std::cin>>n;
+	std::cout<<"Введите кол-во строк матрицы:    "; int m; std::cin>>m;
 	int** matrix = new int*[m];
 	for (int i = 0; i < m; i++) {
         matrix[i] = new int[n];
-    }
+    	}
 	for(int i=0;i<m;i++){
 		for(int j=0;j<n;j++){
 			matrix[i][j]=rand()%100;
