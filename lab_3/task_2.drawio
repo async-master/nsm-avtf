@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-03-28T10:40:10.704Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="djK5Gfan6A3rtCrekIB-" version="21.1.1" type="github">
+<mxfile host="app.diagrams.net" modified="2023-03-28T10:45:43.855Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="OJlJIbxXrqtb2wzvyKGX" version="21.1.1" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="989" dy="549" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="683" dy="379" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -36,15 +36,24 @@
         <mxCell id="EkdHyOvBxnh9aAiLOI_5-9" value="&lt;div&gt;n: порядок матрицы&lt;/div&gt;&lt;div&gt;a: эл-т матрицы, стоящий на позиции [i,j]&lt;br&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="150" y="60" width="185" height="65" as="geometry" />
         </mxCell>
-        <mxCell id="EkdHyOvBxnh9aAiLOI_5-13" value="&lt;div&gt;перезаписываем a-ый элемент&lt;/div&gt;&lt;div&gt;a = a * ((i+j)/(n-1));&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="350" y="310" width="120" height="60" as="geometry" />
+        <mxCell id="Cd7KtAKA9BytH3xhhPAx-0" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.931;exitY=-0.039;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="EkdHyOvBxnh9aAiLOI_5-13" target="AchXT7MokOYVrz_RC3OD-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="462" y="350" />
+              <mxPoint x="465" y="350" />
+              <mxPoint x="465" y="260" />
+            </Array>
+          </mxGeometry>
         </mxCell>
-        <mxCell id="EkdHyOvBxnh9aAiLOI_5-14" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="EkdHyOvBxnh9aAiLOI_5-13" edge="1">
+        <mxCell id="EkdHyOvBxnh9aAiLOI_5-13" value="&lt;div&gt;перезаписываем a-ый элемент&lt;/div&gt;&lt;div&gt;a = a * ((i+j)/(n-1));&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="350" y="350" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EkdHyOvBxnh9aAiLOI_5-14" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="AchXT7MokOYVrz_RC3OD-1" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="355" y="325" as="sourcePoint" />
             <mxPoint x="370" y="180" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="330" y="340" />
+              <mxPoint x="330" y="260" />
               <mxPoint x="330" y="180" />
             </Array>
           </mxGeometry>
@@ -75,16 +84,16 @@
         <mxCell id="EkdHyOvBxnh9aAiLOI_5-23" value="Выводим матрицу" style="whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="470" y="230" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="AchXT7MokOYVrz_RC3OD-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="AchXT7MokOYVrz_RC3OD-0" target="AchXT7MokOYVrz_RC3OD-1">
+        <mxCell id="AchXT7MokOYVrz_RC3OD-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="AchXT7MokOYVrz_RC3OD-0" target="AchXT7MokOYVrz_RC3OD-1" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="AchXT7MokOYVrz_RC3OD-0" value="от i до m с шагом 1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="AchXT7MokOYVrz_RC3OD-0" value="от i до m с шагом 1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="375" y="150" width="70" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="AchXT7MokOYVrz_RC3OD-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="AchXT7MokOYVrz_RC3OD-1" target="EkdHyOvBxnh9aAiLOI_5-13">
+        <mxCell id="AchXT7MokOYVrz_RC3OD-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="AchXT7MokOYVrz_RC3OD-1" target="EkdHyOvBxnh9aAiLOI_5-13" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="AchXT7MokOYVrz_RC3OD-1" value="от j до n с шагом 1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="AchXT7MokOYVrz_RC3OD-1" value="от j до n с шагом 1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="375" y="230" width="70" height="60" as="geometry" />
         </mxCell>
       </root>
