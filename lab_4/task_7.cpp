@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
-#include <iterator>
 
+std::string str4 = ""; // символы которые уже были.
 bool check_symbol(char symbol, std::string str);
 
 int main()
@@ -13,11 +13,11 @@ int main()
     const int len2 = str2.length();
 
     std::string str3 = ""; // конечная строка.
-    std::string str4 = ""; // символы которые уже были.
+    
 
     for(int i=0;i<len1;i++){
         if(check_symbol(str1.at(i), str1)){//проверяем не был ли уже символ
-            str4.append(str1.at(i));
+            str4.append(std::string s(1, str1[i]));
             int n = 0; // счётчик вхождения символа в строку 1.
             for(int j=0;j<str1.length();j++){
                 if(str1.at(i) == str1.at(j)) n++;
@@ -27,9 +27,7 @@ int main()
                 if(str2.at(j) == str1.at(i)) m++;
             }
             int p = (n>m)? m:n;
-            for(int j=1;j<=p;j++) str3.append(str1.at(i))
-        }else{
-            
+            for(int j=1;j<=p;j++) str3.append(std::string s(1, str1[i]));
         }
     }
 
