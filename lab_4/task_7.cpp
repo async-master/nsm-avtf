@@ -16,8 +16,9 @@ int main()
     
 
     for(int i=0;i<len1;i++){
+        std::string s(str1, i, 1);
         if(check_symbol(str1.at(i), str1)){//проверяем не был ли уже символ
-            str4.append(std::string s(1, str1[i]));
+            str4.append(s);
             int n = 0; // счётчик вхождения символа в строку 1.
             for(int j=0;j<str1.length();j++){
                 if(str1.at(i) == str1.at(j)) n++;
@@ -27,7 +28,7 @@ int main()
                 if(str2.at(j) == str1.at(i)) m++;
             }
             int p = (n>m)? m:n;
-            for(int j=1;j<=p;j++) str3.append(std::string s(1, str1[i]));
+            for(int j=1;j<=p;j++) str3.append(s);
         }
     }
 
