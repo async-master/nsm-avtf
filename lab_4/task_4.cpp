@@ -9,6 +9,14 @@ int vowel_count(std::string str){
     return n;
 }
 
+int a_count(std::string str){
+    int n=0;
+    for(int i=0; i<=str.length();i++){
+        if(int(str[i])==97) n++;
+    }
+    return n;
+}
+
 void insertion_sort_vowel(std::string *arr, int size){
 	for(int i=0;i<size;i++){
 		std::string x=arr[i];
@@ -20,6 +28,7 @@ void insertion_sort_vowel(std::string *arr, int size){
 		arr[j+1]=x;
 	}
 }
+
 
 
 int main()
@@ -36,6 +45,11 @@ int main()
 
     for(int i=word_count; i>=0;i--){
         std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
+    std::cout << "Все слова с двумя и более буквами 'a': " << std::endl;
+    for(int i=word_count; i>=0;i--){
+        if(a_count(arr[i])>=2) std::cout<<arr[i]<<" ";
     }
     
     return 0;
