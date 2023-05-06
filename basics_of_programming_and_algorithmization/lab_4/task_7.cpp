@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <string>
 
 std::string str4 = ""; // символы которые уже были.
@@ -6,33 +7,45 @@ bool check_symbol(char symbol, std::string str);
 
 int main()
 {
-    std::string str1 = "abbcccddd";
-    std::string str2 = "aaaabbbccd";
+    
+    std::string file_name; std::cout << "Input file name: "; std::cin >> file_name;
+    std::ifstream file;
+    file.open(file_name);
+    
+    if(file.is_open()){
+    
+        std::string str1;
+        std::string str2;
+        getline(file,str1);
+        getline(file,str2);
+    
+        const int len1 = str1.length();
+        const int len2 = str2.length();
 
-    const int len1 = str1.length();
-    const int len2 = str2.length();
-
-    std::string str3 = ""; // конечная строка.
+        std::string str3 = ""; // конечная строка.
     
 
-    for(int i=0;i<len1;i++){
-        std::string s(str1, i, 1);
-        if(check_symbol(str1.at(i), str1)){//проверяем не был ли уже символ
-            str4.append(s);
-            int n = 0; // счётчик вхождения символа в строку 1.
-            for(int j=0;j<str1.length();j++){
-                if(str1.at(i) == str1.at(j)) n++;
+        for(int i=0;i<len1;i++){
+            std::string s(str1, i, 1);
+            if(check_symbol(str1.at(i), str1)){//проверяем не был ли уже символ
+                str4.append(s);
+                int n = 0; // счётчик вхождения символа в строку 1.
+                for(int j=0;j<str1.length();j++){
+                    if(str1.at(i) == str1.at(j)) n++;
+                }
+                int m = 0; // счётчик вхождения символа в строку 2.
+                for(int j=0;j<str2.length();j++){
+                    if(str2.at(j) == str1.at(i)) m++;
+                }
+                int p = (n>m)? m:n;
+                for(int j=1;j<=p;j++) str3.append(s);
             }
-            int m = 0; // счётчик вхождения символа в строку 2.
-            for(int j=0;j<str2.length();j++){
-                if(str2.at(j) == str1.at(i)) m++;
-            }
-            int p = (n>m)? m:n;
-            for(int j=1;j<=p;j++) str3.append(s);
         }
-    }
 
-    std::cout << str3;
+        std::cout << str3;
+    }else{
+        std::cout << "ERROR" << std::endl;
+    }
 
     return 0;
 }
