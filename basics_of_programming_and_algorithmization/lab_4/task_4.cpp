@@ -1,5 +1,27 @@
 #include <iostream>
+#include <fstream>
 #include <string>
+
+int word_count(std::string file_name){
+    std::ifstream file;
+    file.open(file_name);
+    
+    if(file.is_open()){
+        int count = 1;
+        std::string str;
+        getline(file,str);
+        
+        for (int i = 0; i < str.size(); i++)
+            if (str[i] == ' ') count++;
+            
+        file.close();
+        return count;
+    }
+    else{
+        file.close();
+    }
+    return 0;
+}
 
 int vowel_count(std::string str){
     int n=0;
@@ -33,23 +55,32 @@ void insertion_sort_vowel(std::string *arr, int size){
 
 int main()
 {
-    int word_count; std::cout << "Введите кол-во слов, которое вы хотите ввести: "; std::cin >> word_count;
+    std::string file_name; std::cout << "Input file name: "; std::cin >> file_name;
+    int words = word_count(file_name);
     
-    std::string arr[word_count];
+    std::string arr[words];
     
-    for(int i=0; i<word_count;i++){
-        std::cin >> arr[i];
-    }
+    std::ifstream file;
+    file.open(file_name);
     
-    insertion_sort_vowel(arr, word_count);
+    if(file.is_open()){
+    
+        for(int i=0; i<=words;i++){
+            file >> arr[i];
+        }
+    
+        insertion_sort_vowel(arr, words);
 
-    for(int i=word_count; i>=0;i--){
-        std::cout << arr[i] << " ";
-    }
-    std::cout << std::endl;
-    std::cout << "Все слова с двумя и более буквами 'a': " << std::endl;
-    for(int i=word_count; i>=0;i--){
-        if(a_count(arr[i])>=2) std::cout<<arr[i]<<" ";
+        for(int i=words; i>=0;i--){
+            std::cout << arr[i] << " ";
+        }
+        std::cout << std::endl;
+        std::cout << "World with count('a') >=2: " << std::endl;
+        for(int i=words; i>=0;i--){
+            if(a_count(arr[i])>=2) std::cout<<arr[i]<<" ";
+        }
+    }else{
+        std::cout << "ERROR";
     }
     
     return 0;
