@@ -1,0 +1,76 @@
+#include <Ultrasonic.h>
+
+#define b1 2
+#define b2 3
+#define led 9
+
+#define m1 5
+#define m2 6
+#define m3 7
+
+Ultrasonic ultrasonic(12, 13);
+int distance;
+
+bool flagreverse = 0;
+bool flagtime = 0;
+bool flagled = 1;
+int flagletpw=0;
+
+void setup() {
+  Serial.begin(9600);
+  
+  pinMode(b1, INPUT);
+  pinMode(b2, INPUT);
+  pinMode(led, OUTPUT);
+
+  pinMode(m1, OUTPUT);
+  pinMode(m2, OUTPUT);
+  
+}
+
+void loop() {
+  digitalWrite(m3, HIGH);
+
+  distance = ultrasonic.read();
+  
+  if(distance <=10) {
+    flagled=1;
+    flagletpw = 255;
+    analogWrite(m1, 0);
+    analogWrite(m2, 255);
+    delay(100);
+  }
+  if(distance >10 && distance<=20) {
+    flagled=1;
+    flagletpw = 255/2;
+    analogWrite(m1, 0);
+    analogWrite(m2, 255/2);
+    delay(100);
+  }
+  if(distance > 20 && distance<=30) {
+    flagled=1;
+    flagletpw = 255/4;
+    analogWrite(m1, 0);
+    analogWrite(m2, 255/4);
+    delay(100);
+  }
+  if(distance > 30) {
+    flagled=0;
+    flagletpw=0;
+    analogWrite(m1, 0);
+    analogWrite(m2, 10);
+    delay(100);
+  }
+  if(flagled == 1){
+    analogWrite(led, flagletpw);    
+  }
+  if(flagled == 0){
+    analogWrite(led, flagletpw);    
+  }
+  if(digitalRead(b1) == 1 && flagreverse == 1){
+
+  }
+  if(digitalRead(b1) == 1 && flagreverse == 0){
+    
+  }
+}
