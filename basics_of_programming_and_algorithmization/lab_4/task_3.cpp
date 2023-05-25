@@ -3,8 +3,9 @@
 
 int main()
 {
+    std::string file_name; std::cout << "Input file name: "; std::cin >> file_name;
     std::ifstream file;
-    file.open("text.txt");
+    file.open(file_name);
     
     if(file.is_open()){
         
