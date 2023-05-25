@@ -18,7 +18,7 @@ int main()
             arr[i]=str[i];
         }
         int n = 0;
-        for (int i = 0; i <= len-1; i++) {
+        for (int i = 0; i <= len; i++) {
             if (arr[i] == 'a') arr[i] = 'A';
             if (arr[i] == 'b') arr[i] = 'B';
         }
