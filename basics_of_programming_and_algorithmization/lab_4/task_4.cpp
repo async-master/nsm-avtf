@@ -26,7 +26,7 @@ int word_count(std::string file_name){
 int vowel_count(std::string str){
     int n=0;
     for(int i=0; i<=str.length();i++){
-        if(int(str[i])==97||int(str[i])==101||int(str[i])==105||int(str[i])==111||int(str[i])==117||int(str[i])==121) n++;
+        if(int(str[i])==97||int(str[i])==101||int(str[i])==105||int(str[i])==111||int(str[i])==117 ||int(str[i])==121 || int(str[i])==65||int(str[i])==69||int(str[i])==73||int(str[i])==79||int(str[i])==85||int(str[i])==89) n++;
     }
     return n;
 }
@@ -34,7 +34,7 @@ int vowel_count(std::string str){
 int a_count(std::string str){
     int n=0;
     for(int i=0; i<=str.length();i++){
-        if(int(str[i])==97) n++;
+        if(int(str[i])==97 || int(str[i])== 65) n++;
     }
     return n;
 }
@@ -43,7 +43,7 @@ void insertion_sort_vowel(std::string *arr, int size){
 	for(int i=0;i<size;i++){
 		std::string x=arr[i];
 		int j=i-1;
-		while(j>=0 && vowel_count(arr[j])>=vowel_count(x) && int(arr[j][0])<=int(x[0])){
+		while(j>=0 && (vowel_count(arr[j])>vowel_count(x) || int(arr[j][0])<int(x[0]))){
 			arr[j+1]=arr[j];
 			j--;
 		}
@@ -74,6 +74,7 @@ int main()
         for(int i=words; i>=0;i--){
             std::cout << arr[i] << " ";
         }
+        std::cout << std::endl;
         std::cout << std::endl;
         std::cout << "World with count('a') >=2: " << std::endl;
         for(int i=words; i>=0;i--){
