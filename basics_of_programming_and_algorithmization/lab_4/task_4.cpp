@@ -40,10 +40,21 @@ int a_count(std::string str){
 }
 
 void insertion_sort_vowel(std::string *arr, int size){
+	
 	for(int i=0;i<size;i++){
 		std::string x=arr[i];
 		int j=i-1;
-		while(j>=0 && (vowel_count(arr[j])>vowel_count(x) || int(arr[j][0])<int(x[0]))){
+		while(j>=0 && int(arr[j][0])<int(x[0])){
+			arr[j+1]=arr[j];
+			j--;
+		}
+		arr[j+1]=x;
+	}
+	
+	for(int i=0;i<size;i++){
+		std::string x=arr[i];
+		int j=i-1;
+		while(j>=0 && vowel_count(arr[j])>vowel_count(x) ){
 			arr[j+1]=arr[j];
 			j--;
 		}
