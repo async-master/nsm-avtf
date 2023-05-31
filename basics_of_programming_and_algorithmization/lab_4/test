@@ -42,18 +42,20 @@ int insertion_sort_len_word(std::string *arr, int size, std::string pivot){
 		if(arr[i][len]=='.'){
 		    dot++;
 		}
+		
 		if(arr[i][len]=='.') arr[i].resize(len);
 		if(arr[i][len]==',') arr[i].resize(len);
 		
 		
 		
 		
-		if(arr[i][len]=='.'){
-		    words_cunter = 1;
-		}
+		
 		if(arr[i]==pivot){
 		    std::cout <<"world in tanse: " << dot <<". World num: "<< words_cunter << ". Length: " << arr[i].length()<< std::endl;
 		    return i;
+		}
+		if(arr[i][len]=='.'){
+		    words_cunter = 0;
 		}
 	}
 }
@@ -68,7 +70,7 @@ void insertion(std::string *arr, int size,int a){
 
 void insertion(std::string *arr1, std::string *arr2, int size,int a){
     int j = 0;
-    for(int i=0; i <= size;i++){
+    for(int i=0; i < size;i++){
         if(i == a)continue;
         arr2[j] = arr1[i];
         j++;
