@@ -1,0 +1,117 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+
+int word_count(std::string file_name){
+    std::ifstream file;
+    file.open(file_name);
+    
+    if(file.is_open()){
+        int count = 1;
+        std::string str;
+        getline(file,str);
+        
+        for (int i = 0; i < str.size(); i++)
+            if (str[i] == ' ') count++;
+            
+        file.close();
+        return count;
+    }
+    else{
+        file.close();
+    }
+    return 0;
+}
+
+int insertion_sort_len_word(std::string *arr, int size, std::string pivot){
+	/**
+	for(int i=0;i<size;i++){
+		if(arr[i]==pivot){
+		    std::cout << i << std::endl;
+		}
+		
+	}
+	**/
+	int dot = 1;
+	int words_cunter = 0;
+	
+	for(int i=0;i<size;i++){
+	    words_cunter+=1;
+		std::string x=arr[i];
+		int len = arr[i].length()-1;
+		if(arr[i][len]=='.'){
+		    dot++;
+		}
+		if(arr[i][len]=='.') arr[i].resize(len);
+		if(arr[i][len]==',') arr[i].resize(len);
+		
+		
+		
+		
+		if(arr[i][len]=='.'){
+		    words_cunter = 1;
+		}
+		if(arr[i]==pivot){
+		    std::cout <<"world in tanse: " << dot <<". World num: "<< words_cunter << ". Length: " << arr[i].length()<< std::endl;
+		    return i;
+		}
+	}
+}
+/**
+void insertion(std::string *arr, int size,int a){
+    for(int i=0; i <= size;i++){
+        if(i == a)continue;
+        std::cout << arr[i] << " ";
+    }
+}
+**/
+
+void insertion(std::string *arr1, std::string *arr2, int size,int a){
+    int j = 0;
+    for(int i=0; i <= size;i++){
+        if(i == a)continue;
+        arr2[j] = arr1[i];
+        j++;
+    }
+    for(int i=0; i <= size-1;i++){
+        std::cout << arr2[i] << std::endl;
+    }
+}
+
+
+int main()
+{
+    std::string file_name; std::cout << "Input file name: "; std::cin >> file_name;
+    int words = word_count(file_name);
+    
+    std::string arr[words];
+    
+    std::ifstream file;
+    file.open(file_name);
+    
+    if(file.is_open()){
+    
+        for(int i=0; i<words;i++){
+            file >> arr[i];
+        }
+        std::string pivot; 
+        std::cout << "Input world: ";std::cin >> pivot;
+        std::cout << std::endl;
+        
+        int a = insertion_sort_len_word(arr, words, pivot);
+        
+        std::string *arr2 = new std::string[words-1];
+        //std::string arr2[words-1];
+        
+        insertion(arr,arr2, words,a);
+        
+        for(int i=0; i< words;i++){
+            std::cout << arr2[i] << " ";
+        }
+        
+        return 0;
+    }else{
+        file.close();
+    }
+    return 0;
+}
