@@ -17,9 +17,7 @@ int word_count(std::string file_name){
         file.close();
         return count;
     }
-    else{
-        file.close();
-    }
+    else{file.close();}
     return 0;
 }
 
@@ -44,25 +42,13 @@ void insertion_sort_vowel(std::string *arr, int size){
 	for(int i=0;i<size;i++){
 		std::string x=arr[i];
 		int j=i-1;
-		while(j>=0 && int(arr[j][0])<int(x[0])){
-			arr[j+1]=arr[j];
-			j--;
-		}
-		arr[j+1]=x;
-	}
-	
-	for(int i=0;i<size;i++){
-		std::string x=arr[i];
-		int j=i-1;
-		while(j>=0 && vowel_count(arr[j])>vowel_count(x) ){
+		while(j>=0 && vowel_count(arr[j])>=vowel_count(x) /*&& (vowel_count(arr[j])==vowel_count(x) && int(arr[j][0])<int(x[0]))*/){
 			arr[j+1]=arr[j];
 			j--;
 		}
 		arr[j+1]=x;
 	}
 }
-
-
 
 int main()
 {
