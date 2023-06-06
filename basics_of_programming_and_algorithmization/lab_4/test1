@@ -1,0 +1,30 @@
+#include <iostream>
+#include <fstream>
+#include <set>
+
+std::set<char> symbols;
+
+void unic_symbols(std::string str){
+    const int len = str.length();
+    for (char i : str) symbols.insert(i);
+}
+
+void file(std::string str){
+    std::ifstream file;
+    file.open(str);
+    
+    if(file.is_open()){
+        std::string str;
+        getline(file,str);
+        unic_symbols(str);
+    }
+    file.close();
+}
+
+int main()
+{
+    std::string file_name; std::cout << "Input file name: "; std::cin >> file_name;
+    file(file_name);
+    for (int n : symbols)std::cout << "\'" <<  char(n) << "\'" << " ";
+    return 0;
+}
