@@ -4,6 +4,7 @@ using namespace std;
 
 struct node {
    int data;
+   int data1;
    struct node *next;
 };
 struct node* front = NULL;
@@ -17,17 +18,21 @@ struct queue{
 
 void Insert() {
    int val;
-   cout<<"Insert the element in queue : "<<endl;
+   int val1;
+   cout<<"Insert count of humburgers and Cola Dobriy : "<<endl;
    cin>>val;
+   cin>>val1;
    if (rear == NULL) {
       rear = (struct node *)malloc(sizeof(struct node));
       rear->next = NULL;
       rear->data = val;
+      rear->data1 = val1;
       front = rear;
    } else {
       temp=(struct node *)malloc(sizeof(struct node));
       rear->next = temp;
       temp->data = val;
+      temp->data1 = val1;
       temp->next = NULL;
       rear = temp;
    }
@@ -41,11 +46,11 @@ void Delete() {
    else
    if (temp->next != NULL) {
       temp = temp->next;
-      cout<<"Element deleted from queue is : "<<front->data<<endl;
+      cout<<"Element deleted from queue is : "<<front->data << " " << front->data1<<endl;
       free(front);
       front = temp;
    } else {
-      cout<<"Element deleted from queue is : "<<front->data<<endl;
+      cout<<"Element deleted from queue is : "<<front->data << " " << front->data1 <<endl;
       free(front);
       front = NULL;
       rear = NULL;
@@ -59,15 +64,18 @@ void Display() {
    }
    cout<<"Queue elements are: ";
    while (temp != NULL) {
-      cout<<temp->data<<" ";
+      int x = temp->data;
+      if(x!=0) cout << temp->data << " Haburgers" << " ";
+      if(x!=0) cout << temp->data1 << " Cola Dobriy" << " ";
+      cout << "; ";
       temp = temp->next;
    }
    cout<<endl;
 }
 int main() {
    int ch;
-   cout<<"1) Insert element to queue"<<endl;
-   cout<<"2) Delete element from queue"<<endl;
+   cout<<"1) Insert human to queue tp choose what to do"<<endl;
+   cout<<"2) Delete human from queue"<<endl;
    cout<<"3) Display all the elements of queue"<<endl;
    cout<<"4) Exit"<<endl;
    do {
