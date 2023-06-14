@@ -1,22 +1,40 @@
-#define button1 2 //Пин к которому подключен кнопка №1
-#define button2 3 //Пин к которому подключен кнопка №2
-#define led1_pin 5 //Пин к которому подключен светодиод №3
+
+bool flag = 0;
+
 void setup() {
-  pinMode(button1, INPUT);
-  pinMode(button2, INPUT); 
-  pinMode(led1_pin, OUTPUT);
+  pinMode(1, OUTPUT);
+  pinMode(2, OUTPUT);
+  pinMode(3, OUTPUT);
+  pinMode(4, OUTPUT);
+  pinMode(5, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(7, INPUT);
+  
 }
+
 void loop() {
-  if(digitalRead(button1) == 1){
-    digitalWrite(led1_pin, HIGH);
-    delay(2000); 
-    digitalWrite(led1_pin, LOW);
-    delay(50); 
+  if(flag==0){
+    digitalWrite(2, HIGH);
+    digitalWrite(4, HIGH);
+    digitalWrite(6, HIGH);
+  	digitalWrite(1, LOW);
+    digitalWrite(3, LOW);
+    digitalWrite(5, LOW);
   }
-  if(digitalRead(button2) == 1 ){
-    digitalWrite(led1_pin, HIGH);
-    delay(500); 
-    digitalWrite(led1_pin, LOW);
-    delay(50); 
+  if(flag==1){
+    digitalWrite(2, LOW);
+    digitalWrite(4, LOW);
+    digitalWrite(6, LOW);
+  	digitalWrite(1, HIGH);
+    digitalWrite(3, HIGH);
+    digitalWrite(5, HIGH);
+  }
+  if(digitalRead(7) == 1 && flag == 0){
+    flag = 1;
+    delay(50);
+  }
+  if(digitalRead(7) == 1 && flag == 1){
+    flag = 0;
+    delay(50);
   }
 }
