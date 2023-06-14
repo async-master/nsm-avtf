@@ -1,0 +1,53 @@
+#define b1 1
+#define b2 2
+#define b3 3
+
+#define m1 5
+#define m2 6
+#define m3 7
+
+int speed1=255;
+int speed2=0;
+bool flagreverse = 0;
+
+void setup() {
+  Serial.begin(9600);
+  
+  pinMode(b1, INPUT);
+  pinMode(b2, INPUT);
+  pinMode(b3, INPUT);
+
+  pinMode(m1, OUTPUT);
+  pinMode(m2, OUTPUT);
+  
+}
+
+void loop() {
+  digitalWrite(m3, HIGH);
+   analogWrite(m1, speed2);
+   analogWrite(m2, speed1);
+    
+  
+  if(digitalRead(b1) == 1 && flagreverse == 1){
+    int temp = speed1;
+    speed1 = speed2;
+    speed2=temp;
+    flagreverse = 0;
+    delay(100);
+  }
+  
+  if(digitalRead(b1) == 1 && flagreverse == 0){
+    int temp = speed2;
+      speed2 = speed1;
+      speed1=temp;
+      flagreverse = 1;
+       delay(50);
+  }
+  if(digitalRead(b2) == 1){
+    speed1+=50;
+  }
+  if(digitalRead(b3) == 1){
+    speed1+=50;
+  }
+ 
+}
