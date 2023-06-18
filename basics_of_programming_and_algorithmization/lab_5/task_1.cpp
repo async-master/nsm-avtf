@@ -72,8 +72,37 @@ void Display() {
     }
     cout<<endl;
 }
+void Display() {
+    temp = front;
+    if ((front == NULL) && (rear == NULL)) {
+        cout<<"Queue is empty"<<endl;
+        return;
+    }
+    cout<<"Queue elements are: " << endl;
+    while (temp != NULL) {
+        int x = temp->data;
+        if(x!=0) cout << temp->data << " Haburgers" << " ";
+        if(x!=0) cout << temp->data1 << " Cola Dobriy";
+        cout << endl;
+        temp = temp->next;
+    }
+    cout<<endl;
+}
+void addSupplays(int $food,int $drink){
+    cout << "How much food & drink comming: ";
+    int f1,d1; cin >> f1 >> d1;
+    food += f1;
+    drink += d1;
+    return;
+}
+
+void DisplaySuplays(){
+    cout << "Hamburgers: " << food << "; " << "Cola Dobriy: " << drink << endl;
+    return;
+}
+
 int main() {
-    int 
+    
     int ch;
     cout<<"1) Insert human to queue tp choose what to do"<<endl;
     cout<<"2) Delete human from queue"<<endl;
@@ -89,10 +118,14 @@ int main() {
             break;
             case 3: Display();
             break;
-            case 4: cout<<"Exit"<<endl;
+            case 4: addSupplays(food,drink);
+            break;
+            case 5: DisplaySuplays();
+            break;
+            case 6: cout<<"Exit"<<endl;
             break;
             default: cout<<"Invalid choice"<<endl;
         }
-    } while(ch!=4);
+    } while(ch!=6);
     return 0;
 }
