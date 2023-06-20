@@ -27,7 +27,7 @@ void deleteNode(Node** head_ref, int position)
         cout<<"Need more supplays"<<endl;
         return ;
     }
-
+    
     if (*head_ref == NULL)
 	    return;
 
@@ -36,7 +36,6 @@ void deleteNode(Node** head_ref, int position)
     if (position == 0) {
         kfcCombo -= temp->data;
 	    *head_ref = temp->next;
-
 	    free(temp);
 	    return;
 	}
@@ -46,10 +45,10 @@ void deleteNode(Node** head_ref, int position)
 
     if (temp == NULL || temp->next == NULL)
         return;
-    kfcCombo -= temp->data;
+    kfcCombo -= temp->next->data;
     Node* next = temp->next->next;
 
-    free(temp->next); 
+    free(temp->next);
 
     temp->next = next;
     
@@ -86,7 +85,6 @@ void addSupplays(int $kfcCombo){
     while(true){
         cout << "How much food & drink comming(positive number, please): ";
         cin >> newkfcCombo;
-        cout << endl;
         if(newkfcCombo > 0){
             break;
         }
