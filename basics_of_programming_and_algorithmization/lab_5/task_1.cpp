@@ -1,124 +1,128 @@
 #include <iostream>
-
 using namespace std;
 
-struct node {
-    int data;
-    int data1;
-    struct node *next;
-};
-struct node* front = NULL;
-struct node* rear = NULL;
-struct node* temp;
+int kfcCombo = 10;
 
-struct queue{
-    int kfccombo;
-    int cola;
+struct Node {
+	int data;
+	Node* next;
 };
 
-void Insert() {
-    int val;
-    int val1;
-    cout<<"Insert count of humburgers and Cola Dobriy : "<<endl;
-    cin>>val;
-    cin>>val1;
-    if (rear == NULL) {
-        rear = (struct node *)malloc(sizeof(struct node));
-        rear->next = NULL;
-        rear->data = val;
-        rear->data1 = val1;
-        front = rear;
-    } else {
-        temp=(struct node *)malloc(sizeof(struct node));
-        rear->next = temp;
-        temp->data = val;
-        temp->data1 = val1;
-        temp->next = NULL;
-        rear = temp;
-    }
+void push(Node** head_ref)
+{
+	Node* new_node = new Node();
+	int data;
+	while(true){
+    	cout << "Input number of KFCCombo(positive number): "; cin>>data;
+	    if(data > 0)break;
+	}
+	new_node->data = data;
+	new_node->next = (*head_ref);
+	(*head_ref) = new_node;
 }
-void Delete() {
-    temp = front;
-    if (front == NULL) {
-        cout<<"Underflow"<<endl;
-        return;
+
+void deleteNode(Node** head_ref, int position)
+{
+    if(position == -1){
+        cout<<"Need more supplays"<<endl;
+        return ;
     }
-    else
-    if (temp->next != NULL) {
+
+    if (*head_ref == NULL)
+	    return;
+
+    Node* temp = *head_ref;
+
+    if (position == 0) {
+        kfcCombo -= temp->data;
+	    *head_ref = temp->next;
+
+	    free(temp);
+	    return;
+	}
+
+    for (int i = 0; temp != NULL && i < position - 1; i++)
         temp = temp->next;
-        cout<<"Element deleted from queue is : "<<front->data << " " << front->data1<<endl;
-        free(front);
-        front = temp;
-    } else {
-        cout<<"Element deleted from queue is : "<<front->data << " " << front->data1 <<endl;
-        free(front);
-        front = NULL;
-        rear = NULL;
-    }
-}
-void Display() {
-    temp = front;
-    if ((front == NULL) && (rear == NULL)) {
-        cout<<"Queue is empty"<<endl;
+
+    if (temp == NULL || temp->next == NULL)
         return;
-    }
-    cout<<"Queue elements are: " << endl;
-    while (temp != NULL) {
-        int x = temp->data;
-        if(x!=0) cout << temp->data << " Haburgers" << " ";
-        if(x!=0) cout << temp->data1 << " Cola Dobriy";
+    kfcCombo -= temp->data;
+    Node* next = temp->next->next;
+
+    free(temp->next); 
+
+    temp->next = next;
+    
+}
+
+int posFind(Node* node){
+    int i=0;
+    int pos=0;
+    int data = 99999999;
+    while (node != NULL) {
+		if(node->data <= kfcCombo) {
+		    pos = i;
+		    data = node->data;
+		}
+		node = node->next;
+		i++;
+	}
+	if(data>kfcCombo)return -1;
+	return pos;
+}
+
+void printList(Node* node)
+{
+    cout << "Orders: ";
+	while (node != NULL) {
+		cout << node->data << " ";
+		node = node->next;
+	}
+	cout << endl;
+}
+
+void addSupplays(int $kfcCombo){
+    int newkfcCombo; 
+    while(true){
+        cout << "How much food & drink comming(positive number, please): ";
+        cin >> newkfcCombo;
         cout << endl;
-        temp = temp->next;
+        if(newkfcCombo > 0){
+            break;
+        }
+        
     }
-    cout<<endl;
-}
-void Display() {
-    temp = front;
-    if ((front == NULL) && (rear == NULL)) {
-        cout<<"Queue is empty"<<endl;
-        return;
-    }
-    cout<<"Queue elements are: " << endl;
-    while (temp != NULL) {
-        int x = temp->data;
-        if(x!=0) cout << temp->data << " Haburgers" << " ";
-        if(x!=0) cout << temp->data1 << " Cola Dobriy";
-        cout << endl;
-        temp = temp->next;
-    }
-    cout<<endl;
-}
-void addSupplays(int $food,int $drink){
-    cout << "How much food & drink comming: ";
-    int f1,d1; cin >> f1 >> d1;
-    food += f1;
-    drink += d1;
+    kfcCombo += newkfcCombo;
     return;
 }
 
 void DisplaySuplays(){
-    cout << "Hamburgers: " << food << "; " << "Cola Dobriy: " << drink << endl;
+    cout << "KFCCombo: " << kfcCombo << "; " << endl;
     return;
 }
 
-int main() {
-    
-    int ch;
+// Driver code
+int main()
+{
     cout<<"1) Insert human to queue tp choose what to do"<<endl;
     cout<<"2) Delete human from queue"<<endl;
     cout<<"3) Display all the elements of queue"<<endl;
-    cout<<"4) Exit"<<endl;
+    cout<<"4) Add supplues"<<endl;
+    cout<<"5) Display foods and drinks"<<endl;
+    cout<<"6) Exit"<<endl;
+	Node* head = NULL;
+    int ch;
     do {
-        cout<<"Enter your choice : "<<endl;
+        cout<<"Enter your choice : ";
         cin>>ch;
         switch (ch) {
-            case 1: Insert();
+            case 1: push(&head);;
             break;
-            case 2: Delete();
+            case 2: deleteNode(&head,posFind(head));
             break;
-            case 3: Display();
+            case 3: printList(head);
             break;
-            case 4: addSupplays(food,drink);
+            case 4: addSupplays(kfcCombo);
             break;
             case 5: DisplaySuplays();
             break;
@@ -127,5 +131,5 @@ int main() {
             default: cout<<"Invalid choice"<<endl;
         }
     } while(ch!=6);
-    return 0;
+	return 0;
 }
