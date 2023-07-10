@@ -82,30 +82,30 @@ void loop() {
 
 void blink1()
 {
-  if(interval1==1500){
+  if(interval1==2000){
     interval1=500;
     return;
   }
-  interval1+=500;
+  interval1*=2;
   return;
 }
 
 void blink2()
 {
-  if(interval2==1500){
+  if(interval2==2000){
     interval2=500;
     return;
   }
-  interval2+=500;
+  interval2*=2;
   return;
 }
 
 void blink3()
 {
-  if(interval3==1500){
+  if(interval3==2000){
     interval3=500;
     return;
   }
-  interval3+=500;
+  interval3*=2;
   return;
 }
