@@ -1,6 +1,6 @@
-#define led1 8
-#define led2 12
-#define led3 13
+#define led1 9
+#define led2 10
+#define led3 11
 
 #define button1 2
 #define button2 3
@@ -10,16 +10,20 @@ int potentiometer=0;
 
 int ledState1 = LOW;
 long previousMillis1 = 0;
-volatile long interval1 = 500;
+int interval1 = 2000;
 
 int ledState2 = LOW;
 long previousMillis2 = 0;
-volatile long interval2 = 500;
+int interval2 = 2000;
 
 int ledState3 = LOW;
 long previousMillis3 = 0;
-volatile long interval3 = 500;
+int interval3 = 2000;
 
+long previousMillis4 = 0;
+long previousMillis5 = 0;
+long previousMillis6 = 0;
+long interval = 50;
 
 void setup() {
   pinMode(led1, OUTPUT);
@@ -28,12 +32,41 @@ void setup() {
   pinMode(button1, INPUT);
   pinMode(button2, INPUT);
   pinMode(button3, INPUT);
-  attachInterrupt(button1, blink1, RISING);
-  attachInterrupt(button2, blink2, RISING);
-  attachInterrupt(button3, blink3, RISING);
 }
 
 void loop() {
+  unsigned long currentMillis4 = millis();
+  if(digitalRead(button1) == 1 && (currentMillis4 - previousMillis4 > interval)){
+    previousMillis4 = currentMillis4;
+    if(interval3>=500){
+      interval3/=2;
+    }
+    if(interval3==250){
+      interval3=2000;
+    }
+  }
+
+  unsigned long currentMillis5 = millis();
+  if(digitalRead(button2) == 1 && (currentMillis5 - previousMillis5 > interval)){
+    previousMillis5 = currentMillis5;
+    if(interval2>=500){
+      interval2/=2;
+    }
+    if(interval2==250){
+      interval2=2000;
+    }
+  }
+
+  unsigned long currentMillis6 = millis();
+  if(digitalRead(button3) == 1 && (currentMillis6 - previousMillis6 > interval)){
+    previousMillis6 = currentMillis6;
+    if(interval1>=500){
+      interval1/=2;
+    }
+    if(interval1==250){
+      interval1=2000;
+    }
+  }
   potentiometer = analogRead(0);
   potentiometer = map(potentiometer,0,1023,0,255);
   
@@ -43,11 +76,11 @@ void loop() {
  
     if (ledState1 == LOW){
       ledState1 = HIGH;
-      digitalWrite(led1, potentiometer);
+      analogWrite(led1, potentiometer);
     }
     else{
       ledState1 = LOW;
-      digitalWrite(led1, LOW);
+      analogWrite(led1, LOW);
     }
   }
 
@@ -57,11 +90,11 @@ void loop() {
  
     if (ledState2 == LOW){
       ledState2 = HIGH;
-      digitalWrite(led2, potentiometer);
+      analogWrite(led2, potentiometer);
     }
     else{
       ledState2 = LOW;
-      digitalWrite(led2, LOW);
+      analogWrite(led2, LOW);
     }
   }
 
@@ -71,41 +104,11 @@ void loop() {
  
     if (ledState3 == LOW){
       ledState3 = HIGH;
-      digitalWrite(led3, potentiometer);
+      analogWrite(led3, potentiometer);
     }
     else{
       ledState3 = LOW;
-      digitalWrite(led3, LOW);
+      analogWrite(led3, LOW);
     }
   }
-}
-
-void blink1()
-{
-  if(interval1==2000){
-    interval1=500;
-    return;
-  }
-  interval1*=2;
-  return;
-}
-
-void blink2()
-{
-  if(interval2==2000){
-    interval2=500;
-    return;
-  }
-  interval2*=2;
-  return;
-}
-
-void blink3()
-{
-  if(interval3==2000){
-    interval3=500;
-    return;
-  }
-  interval3*=2;
-  return;
 }
