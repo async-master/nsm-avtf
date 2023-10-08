@@ -1,3 +1,7 @@
+#include <iostream>
+#include <vector>
+#include <string> 
+#include <Matrix.h>
 int main()
 {
     
