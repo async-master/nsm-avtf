@@ -1,6 +1,8 @@
 #include "Matrix.h"
-#include<iostream>
-#include<vector>
+#include <iostream>
+#include <vector>
+#include <string> 
+#include <fstream>
 
 Matrix::Matrix(std::string str) {
     std::ifstream in(str); // окрываем файл для чтения
