@@ -1,19 +1,22 @@
-#pragma once
-#include<vector>
-
 class Matrix {
     int rows;
     int colms;
     std::vector<std::vector<double>> m;
-    void resize(int rows, int colms);
 public:
-    Matrix();
-    Matrix(int rows, int colms) : rows(rows), colms(colms);
-    void printSize();
-    void fullIn();
+    Matrix() : rows(0), colms(0),m{0}
+    {}
+    Matrix(int rows, int colms) : rows(rows), colms(colms), m{}
+    {}
+    Matrix(std::string str);
+
+    int rtnRows() { return rows; }
+    int rtnColms() { return colms; }
+    std::vector<std::vector<double>> rtnM() { return m; }
+
     void printMatrix();
-    void miltOnNum(int num);
-    void resize(int rows, int colms);
+    void miltOnNum(double num);
     Matrix transp();
+    double det(std::vector<std::vector<double>> m, int rows);
+    void outInTextFile();
     ~Matrix();
 };
