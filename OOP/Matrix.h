@@ -1,12 +1,14 @@
 #pragma once
 #include<vector>
+#include<string>
 
 class Matrix {
     int rows;
     int colms;
     std::vector<std::vector<double>> m;
+    //std::vector<std::vector<double>> getCofactor(const std::vector<std::vector<double>> vect, int size);
 public:
-    Matrix() : rows(0), colms(0),m{0}
+    Matrix() : rows(0), colms(0), m{ 0 }
     {}
     Matrix(int rows, int colms) : rows(rows), colms(colms), m{}
     {}
@@ -20,6 +22,10 @@ public:
     void miltOnNum(double num);
     Matrix transp();
     double det(std::vector<std::vector<double>> m, int rows);
+
+    //std::vector<std::vector<double>> getInverse(std::vector<std::vector<double>> m, int size);
+
     void outInTextFile();
+    void outInCSVFile();
     ~Matrix();
 };
