@@ -1,10 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <string> 
-#include <Matrix.h>
+#include "Matrix.h"
+
 int main()
 {
-    
+
     int n;
     Matrix a{};
     Matrix q{};
@@ -16,19 +17,21 @@ int main()
         std::cout << "Что бы транспонировать матрицу нажмите 3 \n";
         std::cout << "Что бы найти определитель матрицы нажмите 4 \n";
         std::cout << "Что бы вывести матрицу нажмите 5 \n";
-        std::cout << "Что бы вывести матрицу в файл нажмите 6 \n";
-        std::cout << "Что бы удалить матрицу нажмите 7 \n";
+        std::cout << "Что бы вывести обратную матрицу 6 \n";
+        std::cout << "Что бы вывести матрицу в файл нажмите 7 \n";
+        std::cout << "Что бы вывести матрицу в файл нажмите 8 \n";
+        std::cout << "Что бы удалить матрицу нажмите 9 \n";
         std::cin >> n;
         switch (n) {
         case 1:
-            {
+        {
             std::cout << "Введите название файла, содержащего матрицу: ";
             std::cin >> fName;
-            
-                Matrix b{ fName };
-                a = b;
-            };
-            break;
+
+            Matrix b{ fName };
+            a = b;
+        };
+        break;
         case 2:
             std::cout << "Введите число на которое хотите умножить матрицу: \n";
             double num; std::cin >> num;
@@ -39,7 +42,7 @@ int main()
         case 4:
             if (a.rtnColms() != a.rtnRows()) {
                 std::cout << "Требуется Квадратная матрица. \n \n";
-                continue; 
+                continue;
             }
             std::cout << a.det(a.rtnM(), a.rtnColms()) << "\n";
             break;
@@ -56,6 +59,12 @@ int main()
             a.outInTextFile();
             break;
         case 7:
+            a.outInTextFile();
+            break;
+        case 8:
+            a.outInCSVFile();
+            break;
+        case 9:
             a = q;
             break;
         default:
