@@ -7,6 +7,8 @@ class Matrix {
     int colms;
     std::vector<std::vector<double>> m;
     //std::vector<std::vector<double>> getCofactor(const std::vector<std::vector<double>> vect, int size);
+    void getCofactor(std::vector<std::vector<double>> vect, std::vector<std::vector<double>> temp, int p, int q, int n);
+    void adjoint(std::vector<std::vector<double>> vect, std::vector<std::vector<double>> temp);
 public:
     Matrix() : rows(0), colms(0), m{ 0 }
     {}
@@ -21,9 +23,9 @@ public:
     void printMatrix();
     void miltOnNum(double num);
     Matrix transp();
-    double det(std::vector<std::vector<double>> m, int rows);
+    double det(/*std::vector<std::vector<double>> m, int rows*/);
 
-    //std::vector<std::vector<double>> getInverse(std::vector<std::vector<double>> m, int size);
+    void inverse(std::vector<std::vector<double>> vect);
 
     void outInTextFile();
     void outInCSVFile();
