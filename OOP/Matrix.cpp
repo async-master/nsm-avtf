@@ -39,7 +39,7 @@ std::vector<std::vector<double>> Matrix::getCofactor(std::vector<std::vector<dou
 }
 */
 
-Matrix::Matrix( std::string str) {
+Matrix::Matrix(std::string str) {
     this->colms = 0;
     this->rows = 0;
 
@@ -78,6 +78,7 @@ void Matrix::miltOnNum(double num) {
 }
 
 Matrix Matrix::transp() {
+    
     Matrix temp(colms, rows);
     temp.m.resize(temp.rows);
     for (int i = 0; i < temp.rows; i++) {
@@ -89,7 +90,10 @@ Matrix Matrix::transp() {
     return temp;
 }
 
-double Matrix::det(std::vector<std::vector<double>> m, int n) {
+double Matrix::det(/*std::vector<std::vector<double>> m, int n*/) {
+   
+    std::vector<std::vector<double>> m = this->rtnM();
+    int n = this->rtnColms();
     double num1, num2, det = 1, index, total = 1;
     double* temp{ new double[n + 1] };
     for (int i = 0; i < n; i++)
@@ -124,41 +128,40 @@ double Matrix::det(std::vector<std::vector<double>> m, int n) {
     }
     return (det / total);
 }
-/*
-std::vector<std::vector<double>> Matrix::getInverse(const std::vector<std::vector<double>> vect, int size) {
-    if (det(vect,size) == 0) {
-        throw std::runtime_error("Determinant is 0");
-    }
 
-    double d = 1.0 / det(vect,size);
-    std::vector<std::vector<double>> solution(vect.size(), std::vector<double>(vect.size()));
-
-    for (size_t i = 0; i < vect.size(); i++) {
-        for (size_t j = 0; j < vect.size(); j++) {
-            solution[i][j] = vect[i][j];
-        }
+void getCofactor(std::vector<std::vector<double>> vect, std::vector<std::vector<double>> temp, int p, int q, int n) {
+    int i = 0, j = 0;
+    for (int r = 0; r < n; r++) {
+        for (int c = 0; c < n; c++) //Copy only those elements which are not in given row r and column c: {
+            if (r != p && c != q) {
+                temp[i][j++] = vect[r][c]; //If row is filled increase r index and reset c index
+                if (j == n - 1) {
+                    j = 0; i++;
+                }
+            }
     }
-    Matrix temp(colms, rows);
-    temp.m.resize(temp.rows);
-    for (int i = 0; i < temp.rows; i++) {
-        temp.m[i].resize(temp.colms);
-        for (int j = 0; j < temp.colms; j++) {
-            temp.m[i][j] = vect[j][i];
-        }
-    }
-    temp.getCofactor(solution, size);
-    temp.transp();
-    solution = temp.rtnM();
-
-    for (size_t i = 0; i < vect.size(); i++) {
-        for (size_t j = 0; j < vect.size(); j++) {
-            solution[i][j] *= d;
-        }
-    }
-
-    return solution;
 }
-*/
+
+void adjoint(std::vector<std::vector<double>> vect, std::vector<std::vector<double>> temp)
+{
+    int s = 1,
+    std::vector<std::vector<double>> temp1;    
+
+    for (int i = 0; i < vect.size(); i++) {
+        for (int j = 0; j < vect.size(); j++) {
+            //To get cofactor of M[i][j]
+            getCofactor(vect, temp1, i, j, vect.size());
+            s = ((i + j) % 2 == 0) ? 1 : -1; //sign of adj[j][i] positive if sum of row and column indexes is even.
+            temp[j][i] = (s) * (det(temp1, vect.size() - 1)); //Interchange rows and columns to get the transpose of the cofactor matrix
+        }
+    }
+}
+
+
+void Matrix::inverse() {
+    
+}
+
 void Matrix::outInTextFile() {
     std::string str; std::cout << "Введите название файла записи: "; std::cin >> str;
     std::ofstream out(str);
