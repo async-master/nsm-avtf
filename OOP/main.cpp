@@ -34,7 +34,7 @@ int main()
         };
         break;
         case 2:
-            std::cout << "Введите число на которое хотите умножить матрицу: \n";
+            std::cout << "Введите число на которое хотите умножить матрицу: ";
             double num; std::cin >> num;
             a.miltOnNum(num);
         case 3:
@@ -42,23 +42,24 @@ int main()
             break;
         case 4:
             if (a.rtnColms() != a.rtnRows()) {
-                std::cout << "Требуется Квадратная матрица. \n \n";
+                std::cout << "Матрица должна быть квадратной. \n";
                 continue;
             }
-            std::cout << a.det(/*a.rtnM(), a.rtnColms()*/) << "\n";
+            std::cout<< a.det()<<"\n";
             break;
         case 5:
-            //a.inverse();
+            if (a.rtnColms() != a.rtnRows()) {
+                std::cout << "Матрица должна быть квадратной. \n";
+                continue;
+            }
+            if (a.det() == 0) {
+                std::cout << "Определитель равен нулю. \n";
+                continue;
+            }
+            a=a.inverse();
             break;
         case 6:
-            
-            if (a.rtnColms() == 0) {
-                std::cout << "Сначала создайте матрицу. \n";
-            }
-            if (a.rtnColms() != 0) {
-                std::cout << "\n";
-                a.printMatrix();
-            }
+            a.printMatrix();
             break;
         case 7:
             a.outInTextFile();
